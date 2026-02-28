@@ -1,45 +1,109 @@
+/* --- 1. Global Reset & Variables --- */
 :root {
     --primary: #2563eb;
     --dark: #0f172a;
     --light: #f8fafc;
+    --border: #e2e8f0;
     --white: #ffffff;
-    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
 
-.container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+/* --- 2. Container (REQUIRED: 1000px, centered, padding) --- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
 
-/* Header & Nav */
-.header { background: var(--white); padding: 1.5rem 0; border-bottom: 1px solid #e2e8f0; }
-.header .container { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
-.nav a { margin-left: 25px; text-decoration: none; color: #64748b; font-weight: 500; transition: 0.3s; }
+/* --- 3. Header (REQUIRED: Responsive Flexbox) --- */
+.header {
+    background: var(--white);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+}
+.header .container {
+    display: flex;
+    justify-content: space-between; /* Logo left, Nav right */
+    align-items: center;
+}
+.logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+.nav a { margin-left: 20px; text-decoration: none; color: #64748b; font-weight: 500; transition: 0.3s; }
 .nav a:hover { color: var(--primary); }
 
-/* Hero Section (index.html) */
-.hero { display: flex; align-items: center; padding: 80px 0; gap: 50px; }
+/* --- 4. Hero Section (REQUIRED: 2-Columns) --- */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    gap: 40px;
+}
 .hero-text { flex: 1; }
-.hero-text h1 { font-size: 3.5rem; line-height: 1; margin-bottom: 20px; color: var(--dark); }
-.hero-card { flex: 1; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); }
+.hero-text h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 20px; }
 
-/* Grid Layout (4-column) */
-.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 40px 0; }
-.card { background: var(--white); border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; transition: 0.3s; }
-.card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
-.card img { width: 100%; height: 180px; object-fit: cover; }
+/* FIX: The starter code called this 'hero-card' without a dot. I added the dot. */
+.hero-card {
+    flex: 1;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+    text-align: right; /* Aligns card to the right on desktop */
+}
+
+/* --- 5. Grid Section (REQUIRED: 4-Columns) --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px 0;
+}
+.card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: 0.3s ease; /* For hover effect */
+}
+.card img { width: 100%; height: 160px; object-fit: cover; }
 .card-body { padding: 15px; text-align: center; }
 
-/* Gallery Specifics (gallery.html) */
-.featured-plot { background: var(--white); padding: 40px; border-radius: 20px; margin-bottom: 50px; box-shadow: var(--shadow); }
-.plot-img { width: 100%; max-width: 850px; border-radius: 12px; display: block; margin: 0 auto; }
+/* --- 6. Hover Styles (REQUIRED: .btn and .card) --- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--primary);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.btn:hover { opacity: 0.9; transform: translateY(-2px); }
+.card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
 
-/* Responsive */
-@media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+/* --- 7. Q4 Gallery Image (REQUIRED: Responsive) --- */
+.plot-img {
+    width: 100%;       /* REQUIRED: max-width 100% equivalent */
+    max-width: 850px; 
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    margin: 20px auto;
+}
+
+/* --- 8. RESPONSIVE BREAKPOINTS (REQUIRED) --- */
+
+/* Tablet (601px to 900px): 2 columns */
+@media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile (max-width: 600px): Stacked and Centered */
 @media (max-width: 600px) {
-    .header .container, .hero { flex-direction: column; text-align: center; }
-    .nav { margin-top: 20px; }
+    .header .container { flex-direction: column; }
+    .nav { margin-top: 15px; }
+    .hero { flex-direction: column; text-align: center; }
+    .hero-card { text-align: center; }
     .grid { grid-template-columns: 1fr; }
-    .hero-text h1 { font-size: 2.5rem; }
 }
