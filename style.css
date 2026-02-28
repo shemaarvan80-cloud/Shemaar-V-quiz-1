@@ -1,1 +1,98 @@
+/* --- Global Styles --- */
+:root {
+    --primary: #2563eb;
+    --dark: #0f172a;
+    --bg: #f8fafc;
+    --white: #ffffff;
+}
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.6; }
+
+/* --- 2. Container (1000px, Centered) --- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 1. Header (Logo Left, Nav Right) --- */
+.header {
+    background: var(--white);
+    padding: 20px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+/* --- 3. Hero Section (2 Columns) --- */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+    gap: 40px;
+}
+.hero-text { flex: 1; }
+.hero-text h1 { font-size: 2.5rem; margin-bottom: 15px; }
+.hero-card {
+    flex: 1;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    text-align: right; /* Aligns card content to the right on desktop */
+}
+
+/* --- 4. Grid Section (4 Columns) --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px 0;
+}
+.card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease;
+}
+.card img { width: 100%; height: 150px; object-fit: cover; }
+.card-body { padding: 15px; text-align: center; }
+
+/* --- 5. Hover Styles --- */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: opacity 0.3s;
+}
+.btn:hover { opacity: 0.8; }
+.card:hover { transform: translateY(-10px); }
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet: 2 Columns (900px) */
+@media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile: Stacked & Centered (600px) */
+@media (max-width: 600px) {
+    .header .container, .hero { flex-direction: column; text-align: center; }
+    .nav { margin-top: 15px; }
+    .grid { grid-template-columns: 1fr; }
+    .hero-card { text-align: center; width: 100%; }
+}
