@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Gallery</title>
+    <title>Project Gallery</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="logo"><strong>STEM</strong>AI</div>
+            <div class="logo">STEM.AI</div>
             <nav class="nav">
                 <a href="index.html">Home</a>
                 <a href="gallery.html">Gallery</a>
@@ -18,22 +18,32 @@
     </header>
 
     <main class="container">
-        <section style="padding: 50px 0; text-align: center;">
-            <h2 style="margin-bottom: 20px;">Research Findings: Study vs. Scores</h2>
-            
-            <img src="https://images.plot.png/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=800" 
-                 alt="Scatter plot showing correlation between study hours and exam scores" 
-                 style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <section style="padding: 60px 0;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Project Gallery</h2>
+            <p style="color: #64748b; margin-bottom: 40px;">Explore my latest data visualizations and design work.</p>
 
-            <div style="margin-top: 30px; text-align: left; background: #fff; padding: 20px; border-radius: 10px;">
-                <p><strong>Finding:</strong> The scatter plot reveals a strong positive correlation where an increase in study hours directly corresponds to an increase in final exam scores.</p>
-                <p><strong>Decision:</strong> Based on this data, I will recommend that students maintain a minimum of 6 study hours per day to ensure they stay within the top-scoring quartile.</p>
+            <div class="featured-plot">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">Featured: Exam Score Analysis</h3>
+                <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=900" alt="Data Plot" class="plot-img">
+                
+                <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+                    <p><strong>Description:</strong> This visualization displays a clear correlation between intensive study hours and peak exam performance.</p>
+                    <p><strong>Decision:</strong> Based on the data, I will recommend that students target a minimum of 7 hours of study to ensure a score in the 80%+ bracket.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 20px;">Other Projects</h3>
+            <div class="grid">
+                <div class="card"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=300"><div class="card-body"><h4>Web Architecture</h4></div></div>
+                <div class="card"><img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=300"><div class="card-body"><h4>UI Mockups</h4></div></div>
+                <div class="card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300"><div class="card-body"><h4>Market Data</h4></div></div>
+                <div class="card"><img src="https://images.unsplash.com/photo-1504868584819-f8eec0421d50?w=300"><div class="card-body"><h4>Visual Trends</h4></div></div>
             </div>
         </section>
     </main>
 
-    <footer style="text-align:center; padding: 20px; border-top: 1px solid #ddd;">
-        &copy; 2026 STEM AI Student
+    <footer style="text-align: center; padding: 40px; border-top: 1px solid #e2e8f0; color: #64748b;">
+        &copy; 2026 STEM AI Student Portfolio
     </footer>
 </body>
 </html>
